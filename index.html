@@ -13,6 +13,8 @@
             --color-light-lavender: #F1E6FF;
             --color-dark-lavender: #B19CD9;
             --color-pink: #FFCAE5;
+            --color-mint: #C4F5E2;
+            --color-light-pink: #FFE2EF;
             --color-white: #FFFFFF;
             --color-text: #7A6C99;
             --font-cute: 'Baloo 2', 'Jua', 'Dongle', sans-serif;
@@ -222,7 +224,7 @@
             color: var(--color-text);
         }
 
-        /* 히어로 섹션 */
+        /* 히어로 섹션 - 통합된 프로필 및 SNS 영역 */
         .hero {
             min-height: 70vh;
             display: flex;
@@ -231,7 +233,7 @@
             margin-top: 70px;
             position: relative;
             overflow: hidden;
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         .hero::before {
@@ -249,12 +251,12 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2.5rem;
             position: relative;
             z-index: 1;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
-            box-shadow: 0 5px 25px rgba(177, 156, 217, 0.3);
+            box-shadow: 0 8px 30px rgba(177, 156, 217, 0.4);
         }
 
         .hero-title {
@@ -268,28 +270,85 @@
 
         .hero-subtitle {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1s ease forwards 0.6s;
         }
 
+        .hero-desc {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards 0.8s;
+        }
+
         .hero-image {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             border: 8px solid var(--color-lavender);
             opacity: 0;
             transform: scale(0.8);
-            animation: fadeScale 1s ease forwards 0.9s;
+            animation: fadeScale 1s ease forwards 0.4s;
+            box-shadow: 0 5px 15px rgba(177, 156, 217, 0.4);
+        }
+
+        /* 통합된 SNS 아이콘 */
+        .hero-social {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+            gap: 1.5rem;
+        }
+
+        .hero-social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: var(--color-text);
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease forwards;
+            border: 3px solid transparent;
+        }
+
+        .hero-social-link:nth-child(1) {
+            animation-delay: 1s;
+            border-color: #000000;
+        }
+
+        .hero-social-link:nth-child(2) {
+            animation-delay: 1.2s;
+            border-color: #E1306C;
+        }
+
+        .hero-social-link:nth-child(3) {
+            animation-delay: 1.4s;
+            border-color: #FF0000;
+        }
+
+        .hero-social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
         .hero-btn {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 1s ease forwards 1.2s;
+            animation: fadeUp 1s ease forwards 1.6s;
+            margin-top: 1rem;
         }
 
         @keyframes fadeUp {
@@ -308,34 +367,32 @@
 
         .decoration {
             position: absolute;
-            opacity: 0.7;
+            opacity: 0.8;
             pointer-events: none;
-            width: 70px; /* 이미지 사이즈 줄임 */
-            height: 70px; /* 이미지 사이즈 줄임 */
         }
 
         .decoration-1 {
-            top: 15%;
+            top: 10%;
             left: 5%;
             animation: float 6s ease-in-out infinite;
-            width: 150px; /* 첫번째 장식 이미지 사이즈 */
-            height: 150px;
+            width: 160px;
+            height: 160px;
         }
 
         .decoration-2 {
-            top: 70%;
+            top: 65%;
             right: 8%;
             animation: float 7s ease-in-out infinite 1s;
-            width: 130px; /* 두번째 장식 이미지 사이즈 */
-            height: 130px;
+            width: 140px;
+            height: 140px;
         }
 
         .decoration-3 {
             bottom: 10%;
             left: 10%;
             animation: float 8s ease-in-out infinite 2s;
-            width: 130px; /* 세번째 장식 이미지 사이즈 */
-            height: 130px;
+            width: 140px;
+            height: 140px;
         }
 
         @keyframes float {
@@ -393,16 +450,30 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             cursor: pointer;
-            transform: translateY(0);
-            opacity: 1;
-            transition: all 0.5s ease;
-            height: 200px; /* Fixed height for all gallery items */
+            transform: translateY(20px);
+            opacity: 0;
+            animation: galleryFadeIn 0.6s ease forwards;
+            height: 200px;
             background-color: var(--color-light-lavender);
         }
 
-        .gallery-item.show {
-            transform: translateY(0);
-            opacity: 1;
+        @keyframes galleryFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item:nth-child(3n+1) {
+            animation-delay: 0.1s;
+        }
+
+        .gallery-item:nth-child(3n+2) {
+            animation-delay: 0.3s;
+        }
+
+        .gallery-item:nth-child(3n+3) {
+            animation-delay: 0.5s;
         }
 
         .gallery-item:hover {
@@ -472,98 +543,6 @@
 
         .gallery-item:hover .play-icon {
             opacity: 1;
-        }
-
-        /* SNS 섹션 */
-        .sns {
-            background-color: var(--color-light-lavender);
-            position: relative;
-            overflow: hidden;
-            padding: 5rem 0;
-        }
-
-        .sns-inner {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .sns-desc {
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-size: 1.2rem;
-            font-family: var(--font-cute);
-        }
-
-        .sns-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-            gap: 2rem;
-        }
-
-        .sns-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp 1s ease forwards;
-            margin: 0 1rem;
-        }
-
-        .sns-icon:nth-child(1) {
-            animation-delay: 0.3s;
-        }
-
-        .sns-icon:nth-child(2) {
-            animation-delay: 0.6s;
-        }
-
-        .sns-icon:nth-child(3) {
-            animation-delay: 0.9s;
-        }
-
-        .sns-circle {
-            width: 120px;
-            height: 120px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 5px solid transparent;
-        }
-
-        .sns-circle:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .sns-twitter .sns-circle {
-            color: #000000;
-            border-color: #000000;
-        }
-
-        .sns-instagram .sns-circle {
-            color: #E1306C;
-            border-color: #E1306C;
-        }
-
-        .sns-youtube .sns-circle {
-            color: #FF0000;
-            border-color: #FF0000;
-        }
-
-        .sns-name {
-            font-weight: 600;
-            font-size: 1.3rem;
-            font-family: var(--font-cute);
         }
 
         /* 푸터 */
@@ -645,6 +624,15 @@
             .section-title {
                 font-size: 2rem;
             }
+            
+            .hero-content {
+                padding: 2rem;
+                max-width: 90%;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -662,6 +650,7 @@
                 background-color: white;
                 padding: 1rem 0;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
 
             .nav-menu.show {
@@ -683,15 +672,29 @@
                 display: flex;
                 align-items: center;
             }
-
-            .sns-icon {
-                margin: 0 0.5rem 1.5rem;
+            
+            .hero-content {
+                padding: 1.5rem;
             }
-
-            .sns-circle {
-                width: 90px;
-                height: 90px;
-                font-size: 2.5rem;
+            
+            .hero-social {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .hero-social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-gap: 1rem;
+            }
+            
+            .gallery-item {
+                height: 180px;
             }
         }
 
@@ -711,6 +714,20 @@
             .hero-image {
                 width: 150px;
                 height: 150px;
+            }
+            
+            .hero-desc {
+                font-size: 1rem;
+            }
+            
+            .hero-social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .gallery-item {
+                height: 160px;
             }
         }
     </style>
@@ -752,23 +769,38 @@
         </div>
     </header>
 
-    <!-- 히어로 섹션 -->
+    <!-- 히어로 섹션 - 통합된 프로필 및 SNS 영역 -->
     <section class="hero">
         <img src="assests/images/deco1.png" alt="장식 이미지" class="decoration decoration-1">
         <img src="assests/images/deco2.png" alt="장식 이미지" class="decoration decoration-2">
         <img src="assests/images/deco3.png" alt="장식 이미지" class="decoration decoration-3">
         <div class="hero-content">
             <img src="assests/images/profile_image.jpg" alt="PuyoMusicBox 프로필" class="hero-image">
-            <h1 class="hero-title" data-key="hero-title">뿌요 PUYO Music Box</h1>
-            <p data-key="hero-desc">PUYO Music Box는 사랑스럽고 귀여운 오르골 사운드로 여러분에게 따뜻한 추억과 편안함을 선사합니다.<br>
+            <h1 class="hero-title">뿌요 PUYO Music Box</h1>
+            <p class="hero-desc">PUYO Music Box는 사랑스럽고 귀여운 오르골 사운드로 여러분에게 따뜻한 추억과 편안함을 선사합니다.<br>
                 다양한 곡들을 오르골 버전으로 재해석하여 소녀감성이 가득한 아기자기한 영상으로 제작하고 있어요.</p>
+            
+            <!-- 통합된 SNS 아이콘 영역 -->
+            <div class="hero-social">
+                <a href="https://twitter.com/puyomusicbox" target="_blank" class="hero-social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com/puyomusicbox" target="_blank" class="hero-social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@puyomusicbox" target="_blank" class="hero-social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            
+            <a href="https://youtube.com/@puyomusicbox" target="_blank" class="btn hero-btn">채널 방문하기</a>
         </div>
     </section>
 
     <!-- 갤러리 섹션 -->
-    <section class="section gallery" style="padding-top: 2rem;">
+    <section class="section gallery">
         <div class="container">
-            <h2 class="section-title" data-key="gallery-title">Gallery</h2>
+            <h2 class="section-title">Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://i.ytimg.com/vi/B2dm1PRd7O4/hqdefault.jpg" alt="프리파라 ost 파루루(Falulu) 0-week-old 오르골 music box Cover" class="gallery-img">
@@ -860,79 +892,9 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/320/200" alt="영상 썸네일" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">도시 소녀 오르골 여행 #5</h3>
-                        <p class="gallery-date">2023.06.12</p>
-                    </div>
-                    <div class="play-icon">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/320/200" alt="영상 썸네일" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">소녀의 꿈 오르골 버전 #6</h3>
-                        <p class="gallery-date">2023.05.30</p>
-                    </div>
-                    <div class="play-icon">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/320/200" alt="영상 썸네일" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">새벽 오르골 멜로디 #7</h3>
-                        <p class="gallery-date">2023.05.15</p>
-                    </div>
-                    <div class="play-icon">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/320/200" alt="영상 썸네일" class="gallery-img">
-                    <div class="gallery-overlay">
-                        <h3 class="gallery-title">봄날의 오르골 #8</h3>
-                        <p class="gallery-date">2023.05.01</p>
-                    </div>
-                    <div class="play-icon">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="https://youtube.com/@puyomusicbox" target="_blank" class="btn" data-key="gallery-btn">더 많은 영상 보기</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SNS 섹션 -->
-    <section class="section sns" style="padding-top: 2rem;">
-        <div class="container">
-            <h2 class="section-title" data-key="sns-title">Contact</h2>
-            <div class="sns-inner">
-                <p class="sns-desc" data-key="sns-desc"></p>
-                <div class="sns-icons">
-                    <a href="https://twitter.com/puyomusicbox" target="_blank" class="sns-icon sns-twitter">
-                        <div class="sns-circle">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <span class="sns-name" data-key="sns-twitter">X</span>
-                    </a>
-                    <a href="https://instagram.com/puyomusicbox" target="_blank" class="sns-icon sns-instagram">
-                        <div class="sns-circle">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <span class="sns-name" data-key="sns-instagram">Instagram</span>
-                    </a>
-                    <a href="https://youtube.com/@puyomusicbox" target="_blank" class="sns-icon sns-youtube">
-                        <div class="sns-circle">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <span class="sns-name" data-key="sns-youtube">YouTube</span>
-                    </a>
-                </div>
+            <div class="text-center" style="text-align: center; margin-top: 2rem;">
+                <a href="https://youtube.com/@puyomusicbox" target="_blank" class="btn">더 많은 영상 보기</a>
             </div>
         </div>
     </section>
@@ -943,6 +905,70 @@
             <div class="footer-logo">
                 <img src="assests/images/logo.png" alt="PuyoMusicBox 로고">
             </div>
-            <p class="copyright" data-key="copyright">© 2023 PUYO Music Box. All Rights Reserved.</p>
+            <div class="footer-social">
+                <a href="https://twitter.com/puyomusicbox" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/puyomusicbox" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@puyomusicbox" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 PUYO Music Box. All Rights Reserved.</p>
         </div>
     </footer>
+    
+    <script>
+        // 언어 선택 토글
+        const langBtn = document.querySelector('.lang-btn');
+        const langDropdown = document.querySelector('.lang-dropdown');
+        const langOptions = document.querySelectorAll('.lang-option');
+        const langCurrent = document.querySelector('.lang-current');
+        
+        // 모바일 메뉴 토글
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // 언어 선택 드롭다운 토글
+        langBtn.addEventListener('click', () => {
+            langDropdown.classList.toggle('show');
+        });
+        
+        // 언어 옵션 선택 시
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                langCurrent.textContent = option.querySelector('span').textContent;
+                langCurrent.setAttribute('data-lang', lang);
+                langDropdown.classList.remove('show');
+                // 여기에 언어 변경 로직 추가
+            });
+        });
+        
+        // 모바일 메뉴 토글
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // 클릭 이외의 영역 클릭 시 드롭다운 닫기
+        document.addEventListener('click', (e) => {
+            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+                langDropdown.classList.remove('show');
+            }
+            
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('show');
+            }
+        });
+        
+        // 갤러리 아이템 클릭 시 유튜브로 이동 (예시 기능)
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('https://youtube.com/@puyomusicbox', '_blank');
+            });
+        });
+        
+        // 페이지 로드 시 애니메이션 효과
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

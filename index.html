@@ -106,17 +106,7 @@
             padding: 0.8rem 20px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .logo h1 {
+        .header-title {
             font-size: 1.8rem;
             margin: 0;
             color: var(--color-dark-lavender);
@@ -156,65 +146,6 @@
 
         .nav-menu a:hover::after {
             width: 100%;
-        }
-
-        .lang-selector {
-            margin-left: 1.5rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .lang-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: var(--font-cute);
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-        }
-
-        .lang-btn:hover {
-            color: var(--color-dark-lavender);
-        }
-
-        .lang-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            padding: 0.5rem 0;
-            min-width: 120px;
-            display: none;
-            z-index: 1000;
-        }
-
-        .lang-dropdown.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .lang-option {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            font-family: var(--font-cute);
-        }
-
-        .lang-option:hover {
-            background-color: var(--color-light-lavender);
-        }
-
-        .lang-flag {
-            width: 20px;
-            margin-right: 8px;
         }
 
         .mobile-toggle {
@@ -277,7 +208,7 @@
         }
 
         .hero-desc {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
             line-height: 1.7;
             opacity: 0;
@@ -321,22 +252,28 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeUp 1s ease forwards;
-            border: 3px solid transparent;
         }
 
         .hero-social-link:nth-child(1) {
             animation-delay: 1s;
-            border-color: #000000;
         }
 
         .hero-social-link:nth-child(2) {
             animation-delay: 1.2s;
-            border-color: #E1306C;
         }
 
         .hero-social-link:nth-child(3) {
             animation-delay: 1.4s;
-            border-color: #FF0000;
+        }
+        
+        .hero-social-link:nth-child(4) {
+            animation-delay: 1.6s;
+        }
+        
+        .social-icon {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
         }
 
         .hero-social-link:hover {
@@ -548,7 +485,7 @@
         /* 푸터 */
         footer {
             background-color: var(--color-lavender);
-            padding: 3rem 0 1.5rem;
+            padding: 2rem 0 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -564,51 +501,18 @@
             background: linear-gradient(to right, var(--color-lavender), var(--color-pink), var(--color-dark-lavender), var(--color-lavender));
         }
 
-        .footer-logo {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo img {
-            height: 50px;
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-nav li {
-            margin: 0 1rem;
-        }
-
-        .footer-nav a {
-            font-family: var(--font-cute);
-            font-size: 1.1rem;
-        }
-
-        .footer-social {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-social a {
-            margin: 0 0.8rem;
-            font-size: 1.5rem;
-            color: var(--color-text);
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--color-dark-lavender);
-        }
-
         .copyright {
             color: var(--color-text);
             font-size: 0.9rem;
-            margin-top: 2rem;
             font-family: var(--font-cute);
+        }
+        
+        .designer-credit {
+            color: var(--color-text);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            font-family: var(--font-cute);
+            opacity: 0.7;
         }
 
         /* 반응형 */
@@ -662,12 +566,6 @@
                 text-align: center;
             }
 
-            .lang-selector {
-                margin-left: 0;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
             .header-right {
                 display: flex;
                 align-items: center;
@@ -707,17 +605,13 @@
                 font-size: 1.8rem;
             }
 
-            .footer-nav li {
-                margin: 0.5rem;
-            }
-
             .hero-image {
                 width: 150px;
                 height: 150px;
             }
             
             .hero-desc {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             
             .hero-social-link {
@@ -737,33 +631,10 @@
     <!-- 헤더 및 내비게이션 -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                <img src="assests/images/logo.png" alt="PuyoMusicBox 로고">
-                <h1>PUYO Music Box</h1>
-            </div>
+            <h1 class="header-title">PUYO Music Box</h1>
             <div class="header-right">
                 <div class="mobile-toggle">
                     <i class="fas fa-bars"></i>
-                </div>
-                <div class="lang-selector">
-                    <button class="lang-btn">
-                        <span class="lang-current" data-lang="ko">한국어</span>
-                        <i class="fas fa-chevron-down ml-2"></i>
-                    </button>
-                    <div class="lang-dropdown">
-                        <div class="lang-option" data-lang="ko">
-                            <img src="/api/placeholder/20/14" alt="한국어" class="lang-flag">
-                            <span>한국어</span>
-                        </div>
-                        <div class="lang-option" data-lang="en">
-                            <img src="/api/placeholder/20/14" alt="English" class="lang-flag">
-                            <span>English</span>
-                        </div>
-                        <div class="lang-option" data-lang="ja">
-                            <img src="/api/placeholder/20/14" alt="日本語" class="lang-flag">
-                            <span>日本語</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -782,14 +653,17 @@
             
             <!-- 통합된 SNS 아이콘 영역 -->
             <div class="hero-social">
-                <a href="https://twitter.com/puyomusicbox" target="_blank" class="hero-social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://instagram.com/puyomusicbox" target="_blank" class="hero-social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
                 <a href="https://youtube.com/@puyomusicbox" target="_blank" class="hero-social-link">
-                    <i class="fab fa-youtube"></i>
+                    <img src="assests/images/youtube-icon.png" alt="YouTube" class="social-icon" id="youtube-icon">
+                </a>
+                <a href="https://www.instagram.com/puyos_music/" target="_blank" class="hero-social-link">
+                    <img src="assests/images/instagram-icon.png" alt="Instagram" class="social-icon" id="instagram-icon">
+                </a>
+                <a href="https://x.com/nhht94" target="_blank" class="hero-social-link">
+                    <img src="assests/images/x-icon.png" alt="X" class="social-icon" id="x-icon">
+                </a>
+                <a href="https://music.bugs.co.kr/artist/80318507" target="_blank" class="hero-social-link">
+                    <img src="assests/images/bugs-icon.png" alt="Bugs Music" class="social-icon" id="bugs-icon">
                 </a>
             </div>
             
@@ -802,7 +676,7 @@
         <div class="container">
             <h2 class="section-title">Gallery</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=B2dm1PRd7O4">
                     <img src="https://i.ytimg.com/vi/B2dm1PRd7O4/hqdefault.jpg" alt="프리파라 ost 파루루(Falulu) 0-week-old 오르골 music box Cover" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">프리파라 ost 파루루(Falulu) 0-week-old 오르골</h3>
@@ -812,7 +686,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=WFQhMPbeAcE">
                     <img src="https://i.ytimg.com/vi/WFQhMPbeAcE/hqdefault.jpg" alt="[original song] A Doll's House Horror Music Box" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">A Doll's House Horror Music Box</h3>
@@ -822,7 +696,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=S3ILXxvrXhk">
                     <img src="https://i.ytimg.com/vi/S3ILXxvrXhk/hqdefault.jpg" alt="[오르골] 생명에게 미움받고 있어 오르골 커버" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">생명에게 미움받고 있어</h3>
@@ -832,7 +706,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=qHUGLjtsSbg">
                     <img src="https://i.ytimg.com/vi/qHUGLjtsSbg/hqdefault.jpg" alt="Sore ga Anata no Shiawase Toshitemo 오르골 커버" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">Sore ga Anata no Shiawase Toshitemo</h3>
@@ -842,7 +716,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=WFQhMPbeAcE">
                     <img src="https://i.ytimg.com/vi/WFQhMPbeAcE/hqdefault.jpg" alt="Music Box Cover Example 5" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">인형의 집 공포 오르골</h3>
@@ -852,7 +726,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=B2dm1PRd7O4">
                     <img src="https://i.ytimg.com/vi/B2dm1PRd7O4/hqdefault.jpg" alt="Music Box Cover Example 6" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">아이돌 테마 오르골</h3>
@@ -862,7 +736,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=S3ILXxvrXhk">
                     <img src="https://i.ytimg.com/vi/S3ILXxvrXhk/hqdefault.jpg" alt="Music Box Cover Example 7" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">꿈속의 멜로디</h3>
@@ -872,7 +746,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=qHUGLjtsSbg">
                     <img src="https://i.ytimg.com/vi/qHUGLjtsSbg/hqdefault.jpg" alt="Music Box Cover Example 8" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">당신의 행복이라면</h3>
@@ -882,7 +756,7 @@
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-video="https://www.youtube.com/watch?v=B2dm1PRd7O4">
                     <img src="https://i.ytimg.com/vi/B2dm1PRd7O4/hqdefault.jpg" alt="Music Box Cover Example 9" class="gallery-img">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">달빛 소나타</h3>
@@ -902,66 +776,36 @@
     <!-- 푸터 -->
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <img src="assests/images/logo.png" alt="PuyoMusicBox 로고">
-            </div>
-            <div class="footer-social">
-                <a href="https://twitter.com/puyomusicbox" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com/puyomusicbox" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://youtube.com/@puyomusicbox" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="copyright">© 2023 PUYO Music Box. All Rights Reserved.</p>
+            <p class="copyright">© 2025 PUYO Music Box. All Rights Reserved.</p>
+            <p class="designer-credit">designed by COSMOH</p>
         </div>
     </footer>
     
     <script>
-        // 언어 선택 토글
-        const langBtn = document.querySelector('.lang-btn');
-        const langDropdown = document.querySelector('.lang-dropdown');
-        const langOptions = document.querySelectorAll('.lang-option');
-        const langCurrent = document.querySelector('.lang-current');
-        
         // 모바일 메뉴 토글
         const mobileToggle = document.querySelector('.mobile-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
-        // 언어 선택 드롭다운 토글
-        langBtn.addEventListener('click', () => {
-            langDropdown.classList.toggle('show');
-        });
-        
-        // 언어 옵션 선택 시
-        langOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                const lang = option.getAttribute('data-lang');
-                langCurrent.textContent = option.querySelector('span').textContent;
-                langCurrent.setAttribute('data-lang', lang);
-                langDropdown.classList.remove('show');
-                // 여기에 언어 변경 로직 추가
-            });
-        });
         
         // 모바일 메뉴 토글
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('show');
         });
         
-        // 클릭 이외의 영역 클릭 시 드롭다운 닫기
+        // 클릭 이외의 영역 클릭 시 메뉴 닫기
         document.addEventListener('click', (e) => {
-            if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-                langDropdown.classList.remove('show');
-            }
-            
             if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('show');
             }
         });
         
-        // 갤러리 아이템 클릭 시 유튜브로 이동 (예시 기능)
+        // 갤러리 아이템 클릭 시 해당 유튜브 영상으로 이동
         const galleryItems = document.querySelectorAll('.gallery-item');
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
-                window.open('https://youtube.com/@puyomusicbox', '_blank');
+                const videoUrl = item.getAttribute('data-video');
+                if (videoUrl) {
+                    window.open(videoUrl, '_blank');
+                }
             });
         });
         
@@ -970,5 +814,3 @@
             document.body.classList.add('loaded');
         });
     </script>
-</body>
-</html>
